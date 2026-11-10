@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>meu site</title>
-</head>
-<body>
-    <h2>meu nome é {{nome}}</h2>
-    <p>minha altura é {{altura}}</p>
-    <p>minha idade é {{idade}}</p>
-    <p>minha profissão é {{profissao}}</p>
-    <h1>adotei esses pets: </h1>
-     <ul>
-        {% for item in pets %}
-         <li>{{item}}</li>
-         {% endfor %}
-     </ul>
-</body>
-</html>
+{% extends "base.html" %}
+{%block conteudo %}
     
+    <h2>meu 1° site</h2>   
+        <p>ola, eu me chamo Tony e estou apredendo a programar</p>
+     <h2>estou apredendo</h2>
+     <p>estou apredendo a programar em python e django</p>
+    <ul>
+        {% for item in cursos %}
+        <li>{{ item }}</li>
+        {% endfor %}
+    </ul>
+    <footer>
+        Feito por Tony Henrique Castro Aguiar seja bem vindo espero que tenha gostado o meu primeiro site.
+    </footer>
+{% endblock %}
