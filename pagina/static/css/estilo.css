@@ -1,0 +1,22 @@
+h2{
+        font-size: 30px;}
+body { font-family: Optima; margin: 1px; }
+header { background: #1120ec; margin: white 1px solid;
+    color: rgb(243, 239, 239); padding: 20px; }
+nav a { color: #080801; background-color: #0ee020; padding: 5px; margin-right: 6px; border-radius: 5px;}
+footer { background: rgb(9, 231, 220);color: rgb(0, 0, 0); margin-top: 30px; text-align: center;}
+main {
+        background-color: hwb(231 2% 7%); padding:10px; color: rgb(252, 252, 252);}
+.cartao {
+        list-style: none;
+        background-color: hwb(189 9% 14%);
+        border: 5px solid #16e25a;
+        border-radius: 5px;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+nav a:hover {
+        background-color: #120eec;
+        color: #e2dfdf;
+    }
+

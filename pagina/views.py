@@ -16,13 +16,12 @@ def inicio(request):
 
 def sobre(request):
     return render(request, "sobre.html")
+
 def contato(request):
-    return HttpResponse(
-        "<hr>"
-                "<a href='/'>Início</a> | "
-                "<a href='/sobre/'>Sobre</a> | "
-                "<a href='/contato/'>Contato</a>"
-"<h1>Entre em contato comigo através do contatos abaixo:</h1>"
-        "<p>meuemail@exemplo.com</p>"
-        "<p>meu numero de telefone: (99) 99999-9999"
-        "<p>meu linkdin: a href= https/aodinqwaiofbwaufab.linkdin.com" )
+    return render(request, "contatos.html")
+
+def projetos(request):
+    projetos = {
+        "projetos": ["Site pessoal", "Sistema de calculadora", "Site SalvaEdu", "Sistema de notas"],
+    }
+    return render(request, "projetos.html", projetos)
