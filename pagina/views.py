@@ -2,7 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import filme
 from .models import projeto
-
+from .models import Categoria, projeto
 def inicio(request):
     dados = {
         "nome": "Tony Henrique Castro Aguiar",
@@ -27,4 +27,11 @@ def projetos(request):
         "projeto": projeto.objects.all(),
     }
     return render(request, "projetos.html", projetos)
+
+def categorias(request):
+    categorias = {
+        "categoria": Categoria.objects.all(),
+        "projeto": projeto.objects.all(),
+    }
+    return render(request, "categorias.html", categorias)
 

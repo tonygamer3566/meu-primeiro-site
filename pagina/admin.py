@@ -1,7 +1,12 @@
 from django.contrib import admin
 
 from .models import filme
-
-admin.site.register(filme)
 from .models import projeto
-admin.site.register(projeto)
+from .models import Categoria
+admin.site.register(filme)
+
+class projetoAdmin(admin.ModelAdmin):
+    list_display = ('nome', "ano", "categoria")
+admin.site.register(Categoria)
+admin.site.register(projeto, projetoAdmin)
+

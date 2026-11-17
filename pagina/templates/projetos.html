@@ -11,7 +11,7 @@
     <ul>
         {% for item in projeto %}
         <li class="cartao">
-           <strong> {{ item.nome }}</strong>: {{item.descricao}} : {{item.ano}} </li>
+           <strong> {{ item.nome }}</strong>: {{item.descricao}} : {{item.ano}} : <strong>{{item.categoria}}</strong></li>
         {% endfor %}
 
 {% endblock %}

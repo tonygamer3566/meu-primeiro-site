@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{%block conteudo %}
+ 
+
+ <h1>Categorias</h1>
+ 
+ <ul>
+     {% for projeto in projeto %}
+         <li class="cartao">
+         <strong>{{ projeto.categoria.nome }} : {{ projeto.nome }}</strong>: {{ projeto.descricao }} : {{projeto.ano}}
+         </li>
+     {% endfor %}
+ </ul>
+ 
+{%endblock%} 
