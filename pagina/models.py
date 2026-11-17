@@ -1,3 +1,18 @@
 from django.db import models
 
-# Create your models here.
+class filme(models.Model):
+    titulo = models.CharField(max_length=100)
+    nota = models.FloatField()
+    genero = models.CharField(max_length=50)
+    ano = models.IntegerField()
+    linguagem = models.CharField(max_length=50)
+    def __str__(self):
+            return self.titulo
+    
+class projeto(models.Model):
+    nome = models.CharField(max_length=100)
+    ano = models.IntegerField()
+    descricao = models.TextField()    
+    
+    def __str__(self):
+        return self.nome

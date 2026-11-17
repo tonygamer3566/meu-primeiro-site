@@ -1,7 +1,8 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import filme
+from .models import projeto
 
-# Create your views here.
 def inicio(request):
     dados = {
         "nome": "Tony Henrique Castro Aguiar",
@@ -22,6 +23,8 @@ def contato(request):
 
 def projetos(request):
     projetos = {
-        "projetos": ["Site pessoal", "Sistema de calculadora", "Site SalvaEdu", "Sistema de notas"],
+        "filme": filme.objects.all(),
+        "projeto": projeto.objects.all(),
     }
     return render(request, "projetos.html", projetos)
+
