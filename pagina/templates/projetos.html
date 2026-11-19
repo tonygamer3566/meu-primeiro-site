@@ -13,5 +13,14 @@
         <li class="cartao">
            <strong> {{ item.nome }}</strong>: {{item.descricao}} : {{item.ano}} : <strong>{{item.categoria}}</strong></li>
         {% endfor %}
+     </ul>
+        <h2>Meus projetos</h2>
+        <ul> 
+     <a href="/novo_projeto/">+ Novo projeto</a> 
+        {% for p in projetos %}
+        <li class="cartao">
+           <strong> {{ p.nome }}</strong>: {{p.descricao}} : {{p.ano}} : <strong>{{p.categoria}}</strong></li>
+        {% endfor %}
+        </ul>
 
-{% endblock %}
+        {% endblock %}

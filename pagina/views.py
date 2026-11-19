@@ -1,8 +1,11 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import filme
 from .models import projeto
 from .models import Categoria, projeto
+from .forms import projetoForm
+
+
 def inicio(request):
     dados = {
         "nome": "Tony Henrique Castro Aguiar",
@@ -34,4 +37,15 @@ def categorias(request):
         "projeto": projeto.objects.all(),
     }
     return render(request, "categorias.html", categorias)
+
+def novo_projeto(request):
+    if request.method == "POST":
+        form = projetoForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("/projetos/")
+    else:
+        form = projetoForm()
+    return render(request, "novo_projeto.html",
+                  {"form": form})
 
