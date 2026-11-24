@@ -12,6 +12,6 @@
         <p>Em andamento</p>
     {% endif %}
 
-    <a href="{% url 'editar_projeto' projeto.id %}">Editar</a>
+    <a href="/projetos/{{ projeto.id }}/editar/">Editar</a>
     <a href="/projetos/">Voltar</a>
 {% endblock %}
