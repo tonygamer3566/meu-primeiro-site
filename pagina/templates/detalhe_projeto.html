@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block conteudo %}
+    <h1>{{ projeto.nome }}</h1>
+    <p>{{ projeto.descricao }}</p>
+    <p>Ano: {{ projeto.ano }}</p>
+    <p>Categoria: {{ projeto.categoria.nome }}</p>
+
+    {% if projeto.concluido %}
+        <p>Concluído ✔</p>
+    {% else %}
+        <p>Em andamento</p>
+    {% endif %}
+
+    <a href="{% url 'editar_projeto' projeto.id %}">Editar</a>
+    <a href="/projetos/">Voltar</a>
+{% endblock %}

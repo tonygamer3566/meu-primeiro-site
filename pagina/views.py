@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import filme
 from .models import projeto
 from .models import Categoria, projeto
@@ -38,14 +38,14 @@ def categorias(request):
     }
     return render(request, "categorias.html", categorias)
 
-def novo_projeto(request):
-    if request.method == "POST":
-        form = projetoForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect("/projetos/")
-    else:
-        form = projetoForm()
-    return render(request, "novo_projeto.html",
-                  {"form": form})
+def detalhe_projeto(request, id): 
+    projeto = get_object_or_404(projeto, id=id)
+    return render(request, "detalhe_projeto.html", {"projeto": projeto})
 
+def editar_projeto(request, id): 
+    projeto = get_object_or_404(projeto, id=id) 
+    if request.method == "POST": form = projetoForm(request.POST) 
+    form = projetoForm(request.POST, instance=projeto)
+    if form.is_valid(): form.save() 
+    return redirect("/projetos/") 
+  else: form = projetoForm() return render(request, "novo_projeto.html", {"form": form})

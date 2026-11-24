@@ -11,6 +11,7 @@
     <ul>
         {% for item in projeto %}
         <li class="cartao">
+         <a href="/projetos/{{ projeto.id }}/"> {{ projeto.nome }} </a>
            <strong> {{ item.nome }}</strong>: {{item.descricao}} : {{item.ano}} : <strong>{{item.categoria}}</strong></li>
         {% endfor %}
      </ul>
