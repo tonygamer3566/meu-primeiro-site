@@ -1,17 +1,13 @@
 {% extends "base.html" %}
 
 {% block conteudo %}
-    <h1>{{ projeto.nome }}</h1>
-    <p>{{ projeto.descricao }}</p>
-    <p>Ano: {{ projeto.ano }}</p>
-    <p>Categoria: {{ projeto.categoria.nome }}</p>
 
-    {% if projeto.concluido %}
-        <p>Concluído ✔</p>
-    {% else %}
-        <p>Em andamento</p>
-    {% endif %}
+<h1>{{ projeto.nome }}</h1>
+<p>{{ projeto.descricao }}</p>
+<p>Ano: {{ projeto.ano }}</p>
+<p>Categoria: {{ projeto.categoria.nome }}</p>
 
-    <a href="/projetos/{{ projeto.id }}/editar/">Editar</a>
-    <a href="/projetos/">Voltar</a>
+<a href="/projetos/{{ projeto.id }}/editar/">Editar</a>
+<a href="/projetos/{{ projeto.id }}/excluir/">Excluir</a>
+<a href="/projetos/">Voltar</a>
 {% endblock %}
