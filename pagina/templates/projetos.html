@@ -1,27 +1,35 @@
 {% extends "base.html" %}
-{%block conteudo %}
-    <h2>meus projetos</h2>
-    <p>esses são os meu projetos: </p>
+{% block conteudo %}
+    <h2>Meus projetos</h2>
+    <p>Esses são os meus projetos:</p>
+
     <ul>
         {% for item in filme %}
         <li class="cartao">
-           <strong> {{ item.titulo }}</strong>: {{item.genero}} : {{item.linguagem}} </li>
+            <strong>{{ item.titulo }}</strong>: {{ item.genero }} : {{ item.linguagem }}
+        </li>
         {% endfor %}
     </ul>
+
     <ul>
         {% for item in projeto %}
-        <li class="cartao">
-         <a href="/projetos/{{ projeto.id }}/"> {{ projeto.nome }} </a>
-           <strong> {{ item.nome }}</strong>: {{item.descricao}} : {{item.ano}} : <strong>{{item.categoria}}</strong></li>
-        {% endfor %}
-     </ul>
-        <h2>Meus projetos</h2>
-        <ul> 
-     <a href="/novo_projeto/">+ Novo projeto</a> 
+<li class="cartao">
+    <a href="{% url 'editar_projeto' item.id %}">
+        <strong>{{ item.nome }}</strong>: {{ item.descricao }} : {{ item.ano }} : <strong>{{ item.categoria }}</strong>
+    </a>
+    <a href="{% url 'excluir_projeto' item.id %}" class="btn-excluir">Excluir</a>
+</li>
+{% endfor %}
+    </ul>
+
+    <h2>Meus projetos</h2>
+    <ul>
+        <li><a href="/novo_projeto/">+ Novo projeto</a></li>
         {% for p in projetos %}
         <li class="cartao">
-           <strong> {{ p.nome }}</strong>: {{p.descricao}} : {{p.ano}} : <strong>{{p.categoria}}</strong></li>
+            <a href="/projetos/{{ p.id }}/">{{ p.nome }}</a>: {{ p.descricao }} : {{ p.ano }} : <strong>{{ p.categoria }}</strong>
+            | <a href="{% url 'editar_projeto' p.id %}">Editar</a>
+        </li>
         {% endfor %}
-        </ul>
-
-        {% endblock %}
+    </ul>
+{% endblock %}

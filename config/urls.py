@@ -26,9 +26,9 @@ urlpatterns = [
     path('projetos/', views.projetos, name='projetos'),
     path('categorias/', views.categorias, name='categorias'),
     path("novo_projeto/", views.novo_projeto, name="novo_projeto"),
-    path('projetos/<int:id>/', views.detalhe_projeto),
-    path('projetos/<int:id>/editar/', views.editar_projeto),
-    path('projetos/<int:id>/excluir/', views.excluir_projeto),
+    path('projetos/<int:id>/', views.detalhe_projeto, name='detalhe_projeto'),
+    path('projetos/<int:id>/editar/', views.editar_projeto, name='editar_projeto'),
+    path('projetos/<int:id>/excluir/', views.excluir_projeto, name='excluir_projeto'),
 ]
 
 

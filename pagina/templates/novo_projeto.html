@@ -1,11 +1,15 @@
 {% extends "base.html" %}
 {% block conteudo %}
     
-   <h1>Novo Projeto</h1>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Salvar</button>
-    </form>
+   <form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Salvar</button>
+</form>
+
+{% if projeto %}
+    <hr>
+    <a href="{% url 'excluir_projeto' projeto.id %}" class="btn-excluir">Excluir projeto</a>
+{% endif %}
 
     {% endblock %}

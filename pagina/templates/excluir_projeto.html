@@ -1,9 +1,11 @@
 {% extends "base.html" %}
- {% block conteudo %}
-  <h1>Excluir projeto</h1>
-   <p>Tem certeza que quer excluir <strong>{{ projeto.nome }}</strong>?</p> 
-   <form method="post"> {% csrf_token %} <button type="submit">Sim, excluir</button>
-     <a href="/projetos/{{ projeto.id }}/">Cancelar</a> </form> 
-   
-   
-   {% endblock %}
+{% block conteudo %}
+    <h2>Excluir projeto</h2>
+    <p>Tem a certeza de que pretende excluir o projeto <strong>{{ projeto.nome }}</strong>?</p>
+
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Sim, excluir</button>
+        <a href="{% url 'projetos' %}">Cancelar</a>
+    </form>
+{% endblock %}

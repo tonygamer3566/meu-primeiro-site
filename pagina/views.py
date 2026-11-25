@@ -46,31 +46,32 @@ def novo_projeto(request):
             return redirect("projetos")
     else:
         form = projetoForm()
-    return render(request, "novo_projeto.html", {"form": form})
+    return render(request, "novo_projeto.html", {"form": form, "projeto": None})
 
-def detalhe_projeto(request, id): 
+def detalhe_projeto(request, id):
     projeto = get_object_or_404(projeto, id=id)
     return render(request, "detalhe_projeto.html", {"projeto": projeto})
 
+
 def editar_projeto(request, id):
-    projeto = get_object_or_404(projeto, id=id)
+    projeto_obj = get_object_or_404(projeto, id=id)
+
     if request.method == "POST":
-        form = projetoForm(request.POST, instance=projeto)
+        form = projetoForm(request.POST, instance=projeto_obj)
         if form.is_valid():
             form.save()
-            return redirect("/projetos/")
+            return redirect("projetos")
     else:
-        form = projetoForm(instance=projeto)
-    return render(request, "novo_projeto.html", {"form": form})
+        form = projetoForm(instance=projeto_obj)
 
-from django.shortcuts import get_object_or_404, redirect, render
+    return render(request, "novo_projeto.html", {"form": form, "projeto": projeto_obj})
 
 
 def excluir_projeto(request, id):
-    projeto = get_object_or_404(projeto, id=id)
+    projeto_obj = get_object_or_404(projeto, id=id)
 
     if request.method == "POST":
-        projeto.delete()
-        return redirect("/projetos/")
+        projeto_obj.delete()
+        return redirect("projetos")
 
-    return render(request, "excluir_projeto.html", {"projeto": projeto})
+    return render(request, "excluir_projeto.html", {"projeto": projeto_obj})
